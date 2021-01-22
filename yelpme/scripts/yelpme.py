@@ -6,6 +6,7 @@
 
 def main():
     print('This is yelper :)')
+    return True
 
 
 if __name__ == '__main__':
