@@ -1,3 +1,3 @@
 # Cx Dojo Company test assignment
 
-![develop](https://github.com/stepanenkoartem/cx_dojo_test_assignment/workflows/python-app.yml/badge.svg&branch=develop)
+[![Build Status](https://github.com/StepanenkoArtem/cx_dojo_test_assignment/workflows/python-app/badge.svg)](https://github.com/StepanenkoArtem/cx_dojo_test_assignment/actions)
