@@ -8,7 +8,7 @@ publish:
 	poetry publish -r testPyPI -u $(user) -p $(password)
 
 lint:
-	poetry run flake8 loader/
+	poetry run flake8 yelper/
 
 bump:
 	poetry version patch
