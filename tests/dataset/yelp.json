@@ -1,0 +1,240 @@
+{
+    "businesses": [
+        {
+            "id": "U2lbKxfjKbqGPsvsYPAyLA",
+            "alias": "beloved-cafe-san-francisco",
+            "name": "Beloved Cafe",
+            "image_url": "https://s3-media2.fl.yelpcdn.com/bphoto/5o9llex0uUfy639MoSxFuA/o.jpg",
+            "is_closed": false,
+            "url": "https://www.yelp.com/biz/beloved-cafe-san-francisco?adjust_creative=KsqoflAxHOzXgNaCarWvYw&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=KsqoflAxHOzXgNaCarWvYw",
+            "review_count": 283,
+            "categories": [
+                {
+                    "alias": "coffee",
+                    "title": "Coffee & Tea"
+                },
+                {
+                    "alias": "juicebars",
+                    "title": "Juice Bars & Smoothies"
+                },
+                {
+                    "alias": "vegan",
+                    "title": "Vegan"
+                }
+            ],
+            "rating": 4.5,
+            "coordinates": {
+                "latitude": 37.75235,
+                "longitude": -122.41925
+            },
+            "transactions": [
+                "pickup",
+                "delivery"
+            ],
+            "price": "$$",
+            "location": {
+                "address1": "3338 24th St",
+                "address2": null,
+                "address3": "",
+                "city": "San Francisco",
+                "zip_code": "94110",
+                "country": "US",
+                "state": "CA",
+                "display_address": [
+                    "3338 24th St",
+                    "San Francisco, CA 94110"
+                ]
+            },
+            "phone": "+14158006546",
+            "display_phone": "(415) 800-6546",
+            "distance": 1786.9826374535194
+        },
+        {
+            "id": "Bsz2u4raa8xNolhl3PDV2Q",
+            "alias": "home-coffee-roasters-san-francisco-8",
+            "name": "Home Coffee Roasters",
+            "image_url": "https://s3-media3.fl.yelpcdn.com/bphoto/93UR51I17CIo4KL_euuv-Q/o.jpg",
+            "is_closed": false,
+            "url": "https://www.yelp.com/biz/home-coffee-roasters-san-francisco-8?adjust_creative=KsqoflAxHOzXgNaCarWvYw&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=KsqoflAxHOzXgNaCarWvYw",
+            "review_count": 650,
+            "categories": [
+                {
+                    "alias": "coffee",
+                    "title": "Coffee & Tea"
+                },
+                {
+                    "alias": "coffeeroasteries",
+                    "title": "Coffee Roasteries"
+                }
+            ],
+            "rating": 4.5,
+            "coordinates": {
+                "latitude": 37.782323,
+                "longitude": -122.480993
+            },
+            "transactions": [
+                "pickup",
+                "delivery"
+            ],
+            "price": "$$",
+            "location": {
+                "address1": "2018 Clement St",
+                "address2": null,
+                "address3": "",
+                "city": "San Francisco",
+                "zip_code": "94121",
+                "country": "US",
+                "state": "CA",
+                "display_address": [
+                    "2018 Clement St",
+                    "San Francisco, CA 94121"
+                ]
+            },
+            "phone": "+14157029244",
+            "display_phone": "(415) 702-9244",
+            "distance": 4583.103508543904
+        },
+        {
+            "id": "SiqcQqHhRtQbtkXOLo640g",
+            "alias": "vega-coffee-san-francisco",
+            "name": "Vega Coffee",
+            "image_url": "https://s3-media3.fl.yelpcdn.com/bphoto/xjfueUOFAGTaIDihgt4P1Q/o.jpg",
+            "is_closed": false,
+            "url": "https://www.yelp.com/biz/vega-coffee-san-francisco?adjust_creative=KsqoflAxHOzXgNaCarWvYw&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=KsqoflAxHOzXgNaCarWvYw",
+            "review_count": 136,
+            "categories": [
+                {
+                    "alias": "coffee",
+                    "title": "Coffee & Tea"
+                }
+            ],
+            "rating": 4.5,
+            "coordinates": {
+                "latitude": 37.7745635,
+                "longitude": -122.410969
+            },
+            "transactions": [],
+            "price": "$",
+            "location": {
+                "address1": "1246 Folsom St",
+                "address2": "",
+                "address3": "",
+                "city": "San Francisco",
+                "zip_code": "94103",
+                "country": "US",
+                "state": "CA",
+                "display_address": [
+                    "1246 Folsom St",
+                    "San Francisco, CA 94103"
+                ]
+            },
+            "phone": "+14156406843",
+            "display_phone": "(415) 640-6843",
+            "distance": 2706.2782251140575
+        },
+        {
+            "id": "Xc_ZRIqAbNfUb2m54xnRoA",
+            "alias": "jane-on-fillmore-san-francisco-2",
+            "name": "Jane on Fillmore",
+            "image_url": "https://s3-media1.fl.yelpcdn.com/bphoto/l0ZQdlAKt678d7s6xkprSQ/o.jpg",
+            "is_closed": false,
+            "url": "https://www.yelp.com/biz/jane-on-fillmore-san-francisco-2?adjust_creative=KsqoflAxHOzXgNaCarWvYw&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=KsqoflAxHOzXgNaCarWvYw",
+            "review_count": 1021,
+            "categories": [
+                {
+                    "alias": "coffee",
+                    "title": "Coffee & Tea"
+                },
+                {
+                    "alias": "bakeries",
+                    "title": "Bakeries"
+                },
+                {
+                    "alias": "breakfast_brunch",
+                    "title": "Breakfast & Brunch"
+                }
+            ],
+            "rating": 4.0,
+            "coordinates": {
+                "latitude": 37.78934,
+                "longitude": -122.43423
+            },
+            "transactions": [
+                "pickup",
+                "delivery"
+            ],
+            "price": "$$",
+            "location": {
+                "address1": "2123 Fillmore St",
+                "address2": "",
+                "address3": "",
+                "city": "San Francisco",
+                "zip_code": "94115",
+                "country": "US",
+                "state": "CA",
+                "display_address": [
+                    "2123 Fillmore St",
+                    "San Francisco, CA 94115"
+                ]
+            },
+            "phone": "+14159315263",
+            "display_phone": "(415) 931-5263",
+            "distance": 3167.666242493912
+        },
+        {
+            "id": "l7x9dM4TVVNMsiUgsdNklw",
+            "alias": "cafe-réveille-san-francisco-8",
+            "name": "Cafe Réveille",
+            "image_url": "https://s3-media4.fl.yelpcdn.com/bphoto/MTmSFYXeqVG_exqJwiWHDA/o.jpg",
+            "is_closed": false,
+            "url": "https://www.yelp.com/biz/cafe-r%C3%A9veille-san-francisco-8?adjust_creative=KsqoflAxHOzXgNaCarWvYw&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=KsqoflAxHOzXgNaCarWvYw",
+            "review_count": 132,
+            "categories": [
+                {
+                    "alias": "breakfast_brunch",
+                    "title": "Breakfast & Brunch"
+                },
+                {
+                    "alias": "cafes",
+                    "title": "Cafes"
+                },
+                {
+                    "alias": "sandwiches",
+                    "title": "Sandwiches"
+                }
+            ],
+            "rating": 4.0,
+            "coordinates": {
+                "latitude": 37.7710554824632,
+                "longitude": -122.432099291995
+            },
+            "transactions": [
+                "pickup"
+            ],
+            "price": "$$",
+            "location": {
+                "address1": "201 Steiner St",
+                "address2": "",
+                "address3": null,
+                "city": "San Francisco",
+                "zip_code": "94117",
+                "country": "US",
+                "state": "CA",
+                "display_address": [
+                    "201 Steiner St",
+                    "San Francisco, CA 94117"
+                ]
+            },
+            "phone": "+14155292034",
+            "display_phone": "(415) 529-2034",
+            "distance": 1192.2218965856198
+        }
+    ],
+    "total": 671,
+    "region": {
+        "center": {
+            "longitude": -122.43644714355469,
+            "latitude": 37.76089938976322
+        }
+    }
+}
