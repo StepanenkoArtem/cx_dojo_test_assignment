@@ -1,3 +1,6 @@
+# coding=utf-8
+"""Database interaction module."""
+
 from mysql.connector import Error, connect
 from yelpme import logging, settings
 
@@ -18,6 +21,17 @@ class DBError(logging.YelpmeException):
 
 
 def save(businesses):
+    """Save retrived business data to database.
+
+    Args:
+        businesses : list
+
+    Return:
+        None
+
+    Raises:
+        DBError : Exception
+    """
     try:
         with connect(
             host=settings.DB_HOST,
@@ -27,4 +41,4 @@ def save(businesses):
             with connection.cursor() as cursor:
                 cursor.execute('SHOW DATABASES;')
     except Error as err:
-        raise DBError('Can not connect to MySQL Server') from err
+        raise DBError('Cannot connect to MySQL Server') from err
