@@ -3,11 +3,10 @@
 import urllib
 
 import requests
-import yelpme
-from yelpme import settings
+from yelpme import logging, settings
 
 
-class ApiRequestError(yelpme.logging.YelpmeException):
+class ApiRequestError(logging.YelpmeException):
     """ApiRequest Exception."""
 
     exit_code = 2
@@ -22,7 +21,17 @@ class ApiRequestError(yelpme.logging.YelpmeException):
         self.message = message
 
 
-def clear_data(business):
+def _clear_data(business):
+    """Filter out necessary data.
+
+    Args:
+        business : dict
+            raw business data retrived from yelp.com
+
+    Returns:
+        cleared : dict
+            necessary business data
+    """
     cleared = {}
     for field, field_value in business.items():
         if field in settings.FIELDS:
@@ -59,7 +68,7 @@ def get_yelp(phrase, location, limit):
         'Connection': 'keep-alive',
         'Host': 'api.yelp.com',
     }
-    try:  # noqa: WPS229
+    try:
         responce = requests.get(
             settings.YELP_API_URL,
             headers=request_yelp_headers,
@@ -76,10 +85,10 @@ def get_yelp(phrase, location, limit):
     businesses = responce.json()['businesses']
 
     # Filter redundant data
-    return list(map(clear_data, businesses))
+    return list(map(_clear_data, businesses))
 
 
-def get_gmp_id(name, *coordinates):
+def get_gmp_id(name, coordinates):
     """Get place_id from googlemaps.
 
     Args:
@@ -89,8 +98,8 @@ def get_gmp_id(name, *coordinates):
             latitude and longitude of business
 
     Returns:
-        : list
-            list of businesess
+        place_id : str
+            GoogleMaps place_id for business
 
     Raises:
         ApiRequestError : Exception
@@ -109,7 +118,7 @@ def get_gmp_id(name, *coordinates):
         'Host': 'maps.googleapis.com',
         'Connection': 'keep-alive',
     }
-    try:  # noqa: WPS229
+    try:
         responce = requests.get(
             settings.GMP_ID_API_URL,
             params=urllib.parse.urlencode(request_gmp_id_params),
@@ -123,11 +132,32 @@ def get_gmp_id(name, *coordinates):
         raise ApiRequestError(
             message="Can't connect to {0}".format(settings.GMP_ID_API_URL),
         ) from request_err
-    place = responce.json()['candidates'][0]
-    return place['place_id']
+    try:
+        place_id = responce.json()['candidates'][0]['place_id']
+    except IndexError as index_err:
+        raise ApiRequestError(
+            message='GoogleMaps place_Id not found',
+        ) from index_err
+    return place_id
 
 
 def get_gmp_details(place_id):
+    """Get place_id from googlemaps.
+
+    Args:
+        place_id : str
+            GoogleMaps place_id for business
+
+    Returns:
+        details : dict
+            google_rating and website of business
+
+    Raises:
+        ApiRequestError : Exception
+            while request error happend
+    """
+    if not place_id:
+        return {}
     request_gmp_detail_params = {
         'fields': 'website,rating',
         'key': settings.GMP_API_KEY,
@@ -137,12 +167,28 @@ def get_gmp_details(place_id):
         'Host': 'maps.googleapis.com',
         'Connection': 'keep-alive',
     }
-    responce = requests.get(
-        settings.GMP_DETAILS_API_URL,
-        params=urllib.parse.urlencode(request_gmp_detail_params),
-        headers=request_gmp_detail_headers,
-    )
-    details = responce.json()['result']
+    try:
+        responce = requests.get(
+            settings.GMP_DETAILS_API_URL,
+            params=urllib.parse.urlencode(request_gmp_detail_params),
+            headers=request_gmp_detail_headers,
+        )
+        responce.raise_for_status()
+    except (
+        requests.RequestException,
+        requests.exceptions.HTTPError,
+    ) as request_err:
+        raise ApiRequestError(
+            message="Can't connect to {0}".format(
+                settings.GMP_DETAILS_API_URL,
+            ),
+        ) from request_err
+    try:
+        details = responce.json()['result']
+    except AttributeError as attr_err:
+        raise ApiRequestError(
+            message='Google Maps details not received',
+        ) from attr_err
     details['google_rating'] = details.pop('rating')
 
     return details
