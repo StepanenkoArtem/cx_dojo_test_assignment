@@ -2,10 +2,12 @@
 # coding=utf-8
 
 """Main module."""
+import logging
 import sys
 
 import click
-from yelpme import engine, logging, settings
+import yelpme
+from yelpme import engine, settings
 
 
 @click.command()
@@ -13,27 +15,29 @@ from yelpme import engine, logging, settings
     'phrase',
 )
 @click.argument(
-    'region',
+    'location',
 )
 @click.option(
-    '--rows',
+    '--limit',
     help='Quantity rows you want to retrive. 50 rows by default',
     default=settings.DEFAULT_ROWS_NUM,
 )
-def main(phrase, region, rows):
+def main(phrase, location, limit):
     """Get parameters from commandline.
 
     PHRASE - A phrase you want to search about on yelp.com.
-    REGION - A region in which you want to get data.
-    ROWS - Quantity of rows you want to retrive
+    LOCATION - A region in which you want to get data.
+    LIMIT - Quantity of rows you want to retrive
     """
+    yelpme.logging.setup()
+
     try:
         engine.run(
             phrase=phrase,
-            region=region,
-            rows_num=rows,
+            location=location,
+            limit=limit,
         )
-    except (logging.YelpmeException) as error:
+    except (yelpme.logging.YelpmeException) as error:
         logging.error(error)
         logging.debug(error.__cause__)
         sys.exit(error.exit_code)
