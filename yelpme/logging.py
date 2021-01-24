@@ -22,14 +22,6 @@ class YelpmeException(Exception):
         super().__init__()
         self.message = message
 
-    def __str__(self):
-        """Provide user-readable message.
-
-        Returns:
-            str: Exception's message
-        """
-        return self.message
-
 
 def setup():
     """Set up logging settings."""
