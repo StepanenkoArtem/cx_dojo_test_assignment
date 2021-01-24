@@ -1,28 +1,34 @@
 # coding=utf-8
 """This is an engine module of yelpme."""
 
-from yelpme import db, google, settings, yelp
+from yelpme import api_requests, db
 
 
-def run(phrase, region, rows_num):
+def run(phrase, location, limit):
     """Handle data retrived from source and save it to db.
 
     Args:
         phrase : str
             phrase for searching business on yelp.com
-        region : str
+        location : str
             which region use for search
-        rows_num : int
+        limit : int
             number of rows to retrive from yelp.com
 
     Return: None
     """
-    
     # Get business data from yelp.com
-    businesses = yelp.get_businesses(phrase, region, rows_num)
-    print(businesses)
+    businesses = api_requests.get_yelp(phrase, location, limit)
+
     # Get get outstanding data from Google Places
-    businesses = map(google.add_details, businesses)
-    print(businesses)
+    for business in businesses:
+        google_place_id = api_requests.get_gmp_id(
+            name=business['name'],
+            latitude=business['coordinates']['latitude'],
+            longitude=business['coordinates']['longitude'],
+        )
+        business_gmp_details = api_requests.get_gmp_details(google_place_id)
+        business.update(business_gmp_details)
+
     # Save data to DB
     db.save(businesses)
