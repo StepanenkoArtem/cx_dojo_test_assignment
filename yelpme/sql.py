@@ -18,7 +18,7 @@ create_cities_table_query = """
 
 create_businesses_table_query = """
     CREATE TABLE IF NOT EXISTS businesses (
-        id INT AUTO_INCREMENT PRIMARY KEY,
+        id varchar(40) PRIMARY KEY,
         title VARCHAR(255) NOT NULL,
         website VARCHAR(255),
         rating FLOAT,
@@ -46,7 +46,7 @@ create_business_on_tags_table_query = """
     CREATE TABLE IF NOT EXISTS business_on_tags (
         id INT AUTO_INCREMENT PRIMARY KEY,
         tag_id INT NOT NULL,
-        business_id INT NOT NULL,
+        business_id VARCHAR(40) NOT NULL,
         FOREIGN KEY (tag_id) REFERENCES tags (id),
         FOREIGN KEY (business_id) REFERENCES businesses (id)
     )
@@ -65,7 +65,8 @@ insert_zip_codes = """
 """
 
 insert_businesses = """
-    INSERT INTO businesses (
+    INSERT IGNORE INTO businesses (
+        id,
         title,
         rating,
         google_rating,
@@ -78,7 +79,7 @@ insert_businesses = """
         zip_code_id
     )
     VALUES
-    (%s, %s, %s, %s, %s, %s, %s, %s,
+    (%s, %s, %s, %s, %s, %s, %s, %s, %s,
     (SELECT id FROM cities WHERE city_name=%s),
     (SELECT id FROM zip_codes WHERE zip_code=%s)
     )

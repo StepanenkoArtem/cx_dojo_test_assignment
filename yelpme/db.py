@@ -114,7 +114,7 @@ def execute_query(connection, query):
         DBError: Exception
     """
     cursor = connection.cursor()
-    try:  # noqa: WPS229
+    try:
         cursor.execute(query)
         connection.commit()
     except Error as err:
@@ -200,7 +200,25 @@ def save(businesses):
     execute_many_query(connection, sql.insert_tags, tuple(tags))
 
     # Insert business
+    prepared_businesses = []
+    for business in businesses:  # WPS266;
+        prepared_businesses.append(
+            (
+                business['id'],
+                business['name'],
+                business['rating'],
+                business.get('google_rating'),
+                business.get('website'),
+                business.get('coordinates')['latitude'],
+                business.get('coordinates')['longitude'],
+                ''.join(business['location']['display_address']),
+                business['phone'],
+                business['location']['city'],
+                business['location']['zip_code'],
+            ),
+        )
 
+    execute_many_query(connection, sql.insert_businesses, prepared_businesses)
     # Insert tags of business
     tags_of_business = []
 

@@ -31,6 +31,7 @@ def run(phrase, location, limit):
             coordinates=coordinates,
         )
         business_gmp_details = api_requests.get_gmp_details(google_place_id)
-        business = {**business, **business_gmp_details}
+        business = business.update(business_gmp_details)
+
     # Save data to DB
     db.save(businesses)

@@ -25,14 +25,13 @@ DB_PASSWORD = os.environ.get('DB_PASSWORD')
 
 # Necessary businesses data
 FIELDS = (
+    'id',
     'name',
     'phone',
-    'website',
     'categories',
     'location',
     'city',
     'zip_code',
     'coordinates',
     'rating',
-    'google_rating',
 )
