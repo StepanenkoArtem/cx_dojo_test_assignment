@@ -40,7 +40,7 @@ def _clear_data(business):
     return cleared
 
 
-def get_yelp(phrase, location, limit):
+def yelp(phrase, location, limit):
     """Get list of businesses from yelp.com.
 
     Args:
@@ -89,7 +89,7 @@ def get_yelp(phrase, location, limit):
     return list(map(_clear_data, businesses))
 
 
-def get_gmp_id(name, coordinates):
+def google_place_id(name, coordinates):
     """Get place_id from googlemaps.
 
     Args:
@@ -143,7 +143,7 @@ def get_gmp_id(name, coordinates):
     return place_id
 
 
-def get_gmp_details(place_id):
+def google_place_details(place_id):
     """Get place_id from googlemaps.
 
     Args:

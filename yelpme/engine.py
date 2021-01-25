@@ -18,7 +18,7 @@ def run(phrase, location, limit):
     Return: None
     """
     # Get business data from yelp.com
-    businesses = api_requests.get_yelp(phrase, location, limit)
+    businesses = api_requests.yelp(phrase, location, limit)
 
     # Get get outstanding data from Google Places
     for business in businesses:
@@ -26,7 +26,7 @@ def run(phrase, location, limit):
             business['coordinates']['latitude'],
             business['coordinates']['longitude'],
         )
-        google_place_id = api_requests.get_gmp_id(
+        google_place_id = api_requests.google_place_id(
             name=business['name'],
             coordinates=coordinates,
         )
