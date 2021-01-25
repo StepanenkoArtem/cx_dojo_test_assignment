@@ -176,6 +176,10 @@ def save(businesses):
     execute_query(connection, sql.create_tags_table_query)
     execute_query(connection, sql.create_business_on_tags_table_query)
 
+##########################################################
+#   This is terrible code below. I am ashamed of him     #
+##########################################################
+
     # Insert zip codes
     zip_codes = {
         (business.get('location')['zip_code'],)
