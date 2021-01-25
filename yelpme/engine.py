@@ -23,15 +23,14 @@ def run(phrase, location, limit):
     # Get get outstanding data from Google Places
     for business in businesses:
         coordinates = (
-            business.get('coordinates')['latitude'],
-            business.get('coordinates')['longitude'],
+            business['coordinates']['latitude'],
+            business['coordinates']['longitude'],
         )
         google_place_id = api_requests.get_gmp_id(
             name=business['name'],
             coordinates=coordinates,
         )
         business_gmp_details = api_requests.get_gmp_details(google_place_id)
-        business.update(business_gmp_details)
-
+        business = {**business, **business_gmp_details}
     # Save data to DB
     db.save(businesses)

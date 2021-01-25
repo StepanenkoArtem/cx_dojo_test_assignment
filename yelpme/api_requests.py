@@ -1,3 +1,4 @@
+# coding=utf-8
 """API Requests module."""
 
 import urllib
@@ -105,7 +106,7 @@ def get_gmp_id(name, coordinates):
         ApiRequestError : Exception
             while request error happend
     """
-    locationbias = 'point:{0}{1}'.format(*coordinates)
+    locationbias = 'point:{0},{1}'.format(*coordinates)
 
     request_gmp_id_params = {
         'fields': 'place_id',
@@ -117,6 +118,7 @@ def get_gmp_id(name, coordinates):
     request_gmp_id_headers = {
         'Host': 'maps.googleapis.com',
         'Connection': 'keep-alive',
+        'Accept-Encoding': 'gzip, deflate, br',
     }
     try:
         responce = requests.get(
