@@ -22,13 +22,3 @@ def database():
     yield
     conn.cursor().execute('DROP DATABASE yelp;')
 
-
-def test_db():
-    connection = connect(
-        host=settings.DB_HOST,
-        user=settings.DB_USER,
-        passwd=settings.DB_PASSWORD,
-    )
-    cursor = connection.cursor()
-    cursor.execute("SHOW DATABASES LIKE 'yelp';")
-    print(cursor.stored_results)
