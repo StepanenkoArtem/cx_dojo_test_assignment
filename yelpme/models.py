@@ -1,11 +1,13 @@
+from peewee import Model
 from peewee import CharField, FloatField, ForeignKeyField, IntegerField
 
-class Cities:
+
+class Cities(Model):
     city_id = IntegerField(primary_key=True)
     city_title = CharField(100)
 
 
-class Business:
+class Business(Model):
     # id INT AUTO_INCREMENT PRIMARY KEY,
     yelp_id = CharField(max_length=40)
     # title VARCHAR(255) NOT NULL,
