@@ -397,6 +397,14 @@ optional = false
 python-versions = ">=2.6"
 
 [[package]]
+name = "peewee"
+version = "3.14.0"
+description = "a little orm"
+category = "main"
+optional = false
+python-versions = "*"
+
+[[package]]
 name = "pep8-naming"
 version = "0.9.1"
 description = "Check PEP-8 naming conventions, plugin for flake8"
@@ -703,7 +711,7 @@ testing = ["pytest (>=3.5,!=3.7.3)", "pytest-checkdocs (>=1.2.3)", "pytest-flake
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.7"
-content-hash = "3036915c6bc2ba958ac22d2644a6f8f280876313287452b432f6d3c259d97d8d"
+content-hash = "1ae40af50dac2927795dfe2b80b83ccfb9bd490c19f228271b20ca065d531542"
 
 [metadata.files]
 astor = [
@@ -912,6 +920,9 @@ packaging = [
 pbr = [
     {file = "pbr-5.5.1-py2.py3-none-any.whl", hash = "sha256:b236cde0ac9a6aedd5e3c34517b423cd4fd97ef723849da6b0d2231142d89c00"},
     {file = "pbr-5.5.1.tar.gz", hash = "sha256:5fad80b613c402d5b7df7bd84812548b2a61e9977387a80a5fc5c396492b13c9"},
+]
+peewee = [
+    {file = "peewee-3.14.0.tar.gz", hash = "sha256:59c5ef43877029b9133d87001dcc425525de231d1f983cece8828197fb4b84fa"},
 ]
 pep8-naming = [
     {file = "pep8-naming-0.9.1.tar.gz", hash = "sha256:a33d38177056321a167decd6ba70b890856ba5025f0a8eca6a3eda607da93caf"},

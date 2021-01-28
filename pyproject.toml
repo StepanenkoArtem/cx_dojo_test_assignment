@@ -11,6 +11,7 @@ requests = "^2.25.1"
 tqdm = "^4.56.0"
 python-dotenv = "^0.15.0"
 mysql-connector-python = "^8.0.23"
+peewee = "^3.14.0"
 
 [tool.poetry.dev-dependencies]
 wemake-python-styleguide = "^0.14.1"
